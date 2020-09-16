@@ -28,8 +28,8 @@ namespace OOP_Introduction
 
             Console.WriteLine("Current owner : " + mycar.Owner.getOwnerName());
 
-            mycar.Owner = new MyPerson("Daniel", "Smith");
-
+            mycar.changeOwner(new MyPerson("Daniel", "Smith"));
+            
             Console.WriteLine("New owner : " + mycar.Owner.getOwnerName());
 
             Console.ReadKey();
