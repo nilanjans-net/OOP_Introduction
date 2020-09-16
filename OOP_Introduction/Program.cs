@@ -1,53 +1,40 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace OOP_Introduction
 {
-  class Program
-  {
-    static void Main(string[] args)
+    class Program
     {
-      // initial access attempt
-      Person Student = new Person
-      {
-        firstName = "John",
-        lastName = "Doe"
-      };
+        static void Main(string[] args) {
 
-      // after fixing access permissions
-      //Debug.WriteLine(Student.getName());
+            Console.WriteLine("Problem statement 1");
+            // Problem statement 1
+            Bike mybike = new Bike();
 
-      // using the constructor
-      Person Teacher = new Person();
-      Person Manager = new Person("Jane");
+            mybike.setNumberOfGears(6);
+            Console.WriteLine("Is my bike registered : " + mybike.verifyRegistrationNumber());
+           
+            Car mycar = new Car();
+            mycar.setModelYear(1979);
 
-      // passing by value
-      int testVar1 = 3;
-      int result1 = ModifyPrimitiveArgument(testVar1);
-      Debug.WriteLine(testVar1 + " " + result1);
+            Console.WriteLine("Is my car antic : " + mycar.isAntic());
 
-      // passing by reference
-      Person testVar2 = new Person("Doe");
-      Person result2 = ModifyObjectArgument(testVar2);
-      Debug.WriteLine(testVar2.lastName + " " + result2.lastName);
+            Console.WriteLine();
+            Console.WriteLine("Problem statement 2");
+            // Problem statement 2
 
-      // using a child class
-      Student Student1 = new Student();
+            mycar.Owner = new MyPerson("Alex", "Zhideev");
 
-      // interfaces
-      GraduateStudent Grad = new GraduateStudent();
-      Debug.WriteLine(Grad.Study());
+            Console.WriteLine("Current owner : " + mycar.Owner.getOwnerName());
+
+            mycar.Owner = new MyPerson("Daniel", "Smith");
+
+            Console.WriteLine("New owner : " + mycar.Owner.getOwnerName());
+
+            Console.ReadKey();
+
+           
+        }
     }
-
-    static int ModifyPrimitiveArgument(int x)
-    {
-      x = 6;
-      return x;
-    }
-
-    static Person ModifyObjectArgument(Person x)
-    {
-      x.lastName = "Dane";
-      return x;
-    }
-  }
 }
